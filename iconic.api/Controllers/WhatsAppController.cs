@@ -1,4 +1,3 @@
-using System;
 using Medium.WhatsApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -6,17 +5,20 @@ using Models;
 using Twilio.AspNet.Common;
 using Twilio.AspNet.Core;
 using Twilio.TwiML;
-using iconic.common.CorporateBuzzWords;
 using System.Threading.Tasks;
+using iconic.common.Services;
+using iconic.common.Helpers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class WhatsAppController : TwilioController
 {
     public IConfiguration _configuration;
-    public WhatsAppController(IConfiguration configuration)
+    private readonly IMessageProcessor _messageProcessor;
+    public WhatsAppController(IConfiguration configuration, IMessageProcessor messageProcessor)
     {
         _configuration = configuration;
+        _messageProcessor = messageProcessor;
     }
 
     [HttpPost]
@@ -31,11 +33,8 @@ public class WhatsAppController : TwilioController
     {
         var messagingResponse = new MessagingResponse();
 
-        BuzzWordGenerator generator = new BuzzWordGenerator();
-
-        string randomBuzz = await generator.GenerateRandomBuzz();
-
-        messagingResponse.Message("Random Corporate Gyan: " + randomBuzz);
+        await _messageProcessor.Process(incomingMessage.Body);
+        
         return TwiML(messagingResponse);
     }
 }

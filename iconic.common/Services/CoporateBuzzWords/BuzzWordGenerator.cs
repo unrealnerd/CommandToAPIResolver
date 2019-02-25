@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
-namespace iconic.common.CorporateBuzzWords
+namespace iconic.common.Services.CorporateBuzzWords
 {    
     [DataContract]
     public class CorporateBuzzWordResponse
@@ -12,9 +12,19 @@ namespace iconic.common.CorporateBuzzWords
         public string Phrase { get; set; }        
     }
 
-    public class BuzzWordGenerator
+    public class BuzzWordGenerator : ICustomService
     {
-        public async Task<string> GenerateRandomBuzz()
+        public bool CanExecute(string message)
+        {
+            return true;
+        }
+
+        public async Task<string> Execute()
+        {
+            return await GenerateRandomBuzz();
+        }
+
+        private async Task<string> GenerateRandomBuzz()
         {
             CorporateBuzzWordResponse randomBuzzResponse = null;
             
