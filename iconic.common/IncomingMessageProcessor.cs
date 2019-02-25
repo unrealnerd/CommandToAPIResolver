@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using iconic.common.Services;
 
@@ -13,9 +14,20 @@ namespace iconic.common
             _customServices = customServices;
         }
 
-        public Task Process(string message)
+        public async Task<string> Process(string message)
         {
-            return null;
+            ICustomService customService = null;
+
+            switch (message.Split('/')[0])
+            {
+                case Constants.CorporateBullShitBuzzWord:
+                    customService = _customServices.Where(cs=>cs.CanExecute(Constants.CorporateBullShitBuzzWord)).First();
+                    break;
+                default:
+                    break;
+            }
+
+            return await customService?.Execute();
         }
     }
 }

@@ -33,8 +33,8 @@ public class WhatsAppController : TwilioController
     {
         var messagingResponse = new MessagingResponse();
 
-        await _messageProcessor.Process(incomingMessage.Body);
+        var response = await _messageProcessor.Process(incomingMessage.Body);
         
-        return TwiML(messagingResponse);
+        return TwiML(new MessagingResponse().Message(response));
     }
 }
