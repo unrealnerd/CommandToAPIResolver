@@ -5,6 +5,6 @@ namespace iconic.common.Services
     {
         Task<string> Execute();
 
-        bool CanExecute(string message);
+        bool CanExecute(string messageKey);
     }
 }
