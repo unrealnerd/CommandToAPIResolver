@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using iconic.common.Services;
+using iconic.common.Services.CorporateBuzzWords;
+using iconic.common;
 
 namespace iconic.api
 {
@@ -26,6 +29,8 @@ namespace iconic.api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<ICustomService, BuzzWordGenerator>();
+            services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
