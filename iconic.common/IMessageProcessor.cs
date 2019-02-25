@@ -4,6 +4,6 @@ namespace iconic.common.Services
 {
     public interface IMessageProcessor
     {
-         Task Process(string message);
+         Task<string> Process(string message);
     }
 }
