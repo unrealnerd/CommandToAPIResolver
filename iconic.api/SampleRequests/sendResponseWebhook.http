@@ -1,4 +1,4 @@
-@whatsappcontrollerUrl = http://7ee21581.ngrok.io/api/whatsapp
+@whatsappcontrollerUrl = http://localhost:5000/api/whatsapp
 
 ###Send a message on whats app
 POST {{whatsappcontrollerUrl}}  HTTP/1.1
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 ###Receive a message from whats app
 POST {{whatsappcontrollerUrl}}/incoming HTTP/1.1
-Content-Type: application/x-www-urlencoded
+Content-Type: application/x-www-form-urlencoded
 
 ApiVersion=2010-04-01&SmsSid=SMbc3ddc802eb380f6fc15109386e8bf8a&SmsStatus=received&SmsMessageSid=SMbc3ddc802eb380f6fc15109386e8bf8a&NumSegments=1&From=whatsapp%3A%2B919916242328&To=whatsapp%3A%2B14155238886&MessageSid=SMbc3ddc802eb380f6fc15109386e8bf8a&Body=dfgdfgfd&AccountSid=ACde85c08fe7789dc6102257eaa33fd418&NumMedia=0
 
