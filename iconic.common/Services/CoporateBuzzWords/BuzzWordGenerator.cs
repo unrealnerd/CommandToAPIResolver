@@ -14,12 +14,12 @@ namespace iconic.common.Services.CorporateBuzzWords
 
     public class BuzzWordGenerator : ICustomService
     {
-        public bool CanExecute(string message)
+        public bool CanExecute(string messageKey)
         {
-            return true;
+            return messageKey.Equals(Constants.CorporateBullShitBuzzWord);
         }
 
-        public async Task<string> Execute()
+        public async Task<string> Execute(string message)
         {
             return await GenerateRandomBuzz();
         }

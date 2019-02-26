@@ -24,10 +24,11 @@ namespace iconic.common
                     customService = _customServices.Where(cs=>cs.CanExecute(Constants.CorporateBullShitBuzzWord)).First();
                     break;
                 default:
+                    customService = _customServices.Where(cs=>cs.CanExecute(Constants.CopyCat)).First();
                     break;
             }
 
-            return await customService?.Execute();
+            return await customService.Execute(message);
         }
     }
 }
