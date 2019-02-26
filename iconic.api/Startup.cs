@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using iconic.common.Services;
 using iconic.common.Services.CorporateBuzzWords;
 using iconic.common;
+using iconic.common.Services.CopyCat;
 
 namespace iconic.api
 {
@@ -30,6 +31,7 @@ namespace iconic.api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<ICustomService, BuzzWordGenerator>();
+            services.AddScoped<ICustomService, CopyCatRepeater>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
         }
 
