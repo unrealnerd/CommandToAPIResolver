@@ -17,3 +17,14 @@ ApiVersion=2010-04-01&SmsSid=abcd&SmsStatus=received&SmsMessageSid=abcd&NumSegme
 
 ### CORPORATE BULL SHIT
 GET https://corporatebs-generator.sameerkumar.website/ HTTP/1.1
+
+
+### GOOGLE STATIC MAPS API
+GET https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=12&size=400x400&key={{GoogleStaticMapsAPIKey}} HTTP/1.1
+
+
+### TELEGRAM API ######
+
+### SetWebHook ###
+GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/getUpdates HTTP/1.1
+Content-Type: application/json
