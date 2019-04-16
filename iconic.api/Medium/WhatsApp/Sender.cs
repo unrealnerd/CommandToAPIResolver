@@ -13,7 +13,7 @@ namespace Medium.WhatsApp
         {
             _configuration = configuration;
         }
-        public void Message(string body, string phoneNumber)
+        public void SendMessage(string body, string phoneNumber)
         {
             string accountSid = _configuration["TwilioAccountSid"];
             string authToken = _configuration["TwilioAuthToken"];

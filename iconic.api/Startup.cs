@@ -14,6 +14,7 @@ using iconic.common.Services;
 using iconic.common.Services.CorporateBuzzWords;
 using iconic.common;
 using iconic.common.Services.CopyCat;
+using iconic.api.Medium.Telegram;
 
 namespace iconic.api
 {
@@ -33,6 +34,7 @@ namespace iconic.api
             services.AddScoped<ICustomService, BuzzWordGenerator>();
             services.AddScoped<ICustomService, CopyCatRepeater>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
+            services.AddHttpClient<TelegramService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

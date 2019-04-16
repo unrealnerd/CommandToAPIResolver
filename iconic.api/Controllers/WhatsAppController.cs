@@ -22,10 +22,10 @@ public class WhatsAppController : TwilioController
     }
 
     [HttpPost]
-    public void Post([FromBody]Message message)
+    public void Post([FromBody]WhatsAppMessage message)
     {
         Sender s = new Sender(_configuration);
-        s.Message(message.Body, message.ToPhoneNumber);
+        s.SendMessage(message.Body, message.ToPhoneNumber);
     }
 
     [HttpPost("incoming")]    

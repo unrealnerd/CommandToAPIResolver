@@ -1,4 +1,5 @@
 @whatsappcontrollerUrl = http://localhost:5000/api/whatsapp
+@webHookUrl = http://localhost:5000/api/whatsapp
 
 ###Send a message on whats app
 POST {{whatsappcontrollerUrl}}  HTTP/1.1
@@ -25,6 +26,13 @@ GET https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+Yo
 
 ### TELEGRAM API ######
 
-### SetWebHook ###
+### Get Updates ###
 GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/getUpdates HTTP/1.1
-Content-Type: application/json
+
+### SetWebHook ###
+GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/setWebhook?url={{webHookUrl}} HTTP/1.1
+
+
+### Send Message ###
+GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/sendMessage?chat_id=666535987&text=testtesttest HTTP/1.1
+
