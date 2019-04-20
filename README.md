@@ -18,7 +18,11 @@ This will use generate a radom BS Buzzword using [Corporate Bull Shit Buzzword A
 
 Small demo on how this application interacting with Corporate Bull Shit API and using Twilio WhatsApp API
 
-![Twilio Whatsapp](images/botconductorwhatsapp.gif)
+![Twilio Whatsapp BotConductor](images/botconductorwhatsapp.gif)
+
+Same demo using Telegram API
+
+![Telegram BotConductor](images/botconductortelegram.gif)
 
 ### TODO
 

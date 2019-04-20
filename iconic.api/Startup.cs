@@ -14,9 +14,8 @@ using iconic.common.Services;
 using iconic.common.Services.CorporateBuzzWords;
 using iconic.common;
 using iconic.common.Services.CopyCat;
-using iconic.api.Medium.Telegram;
-using iconic.common.Models.Telegram;
 using System.IO;
+using iconic.telegram;
 
 namespace iconic.api
 {

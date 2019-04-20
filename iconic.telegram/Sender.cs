@@ -1,8 +1,6 @@
 using System.Threading.Tasks;
-using iconic.api.Medium.Telegram;
-using Microsoft.Extensions.Configuration;
 
-namespace Medium.Telegram
+namespace iconic.telegram
 {
     public class Sender
     {

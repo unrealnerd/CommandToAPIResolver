@@ -1,11 +1,10 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using iconic.common.Models.Telegram;
 using Microsoft.Extensions.Options;
 using Telegram.Bot.Types;
 
-namespace iconic.api.Medium.Telegram
+namespace iconic.telegram
 {
     public class TelegramService
     {

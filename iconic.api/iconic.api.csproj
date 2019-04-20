@@ -10,13 +10,13 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
-    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
-    <PackageReference Include="Telegram.Bot" Version="14.10.0" />    
+    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />    
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\iconic.common\iconic.common.csproj" />
     <ProjectReference Include="..\iconic.whatsapp\iconic.whatsapp.csproj" />
+    <ProjectReference Include="..\iconic.telegram\iconic.telegram.csproj" />
   </ItemGroup>
 
 </Project>

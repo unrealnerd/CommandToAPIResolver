@@ -1,4 +1,4 @@
-namespace iconic.common.Models.Telegram
+namespace iconic.telegram
 {
     public class TelegramOptions
     {

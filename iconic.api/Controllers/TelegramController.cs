@@ -5,9 +5,8 @@ using Models;
 using System.Threading.Tasks;
 using iconic.common.Services;
 using iconic.common.Helpers;
+using iconic.telegram;
 using Telegram.Bot.Types;
-using Medium.Telegram;
-using iconic.api.Medium.Telegram;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -23,11 +22,6 @@ public class TelegramController : Controller
         _telegramService = telegramService;
     }
 
-    [HttpPost]
-    public void Post([FromBody]Message message)
-    {
-        //Sender s = new Sender(_configuration);
-    }
 
     [HttpPost("incoming")]
     public async Task<bool> IncomingMessage(Update incomingMessage)
