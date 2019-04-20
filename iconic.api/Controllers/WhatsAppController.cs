@@ -1,4 +1,3 @@
-using Medium.WhatsApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Models;
@@ -8,6 +7,7 @@ using Twilio.TwiML;
 using System.Threading.Tasks;
 using iconic.common.Services;
 using iconic.common.Helpers;
+using iconic.whatsapp;
 
 [Route("api/[controller]")]
 [ApiController]

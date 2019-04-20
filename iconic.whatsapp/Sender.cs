@@ -4,7 +4,7 @@ using Twilio.Clients;
 using Twilio.Exceptions;
 using Twilio.Rest.Api.V2010.Account;
 
-namespace Medium.WhatsApp
+namespace iconic.whatsapp
 {
     public class Sender
     {
