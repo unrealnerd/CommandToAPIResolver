@@ -1,4 +1,4 @@
-using Medium.WhatsApp;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Models;
@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using iconic.common.Services;
 using iconic.common.Helpers;
 using Telegram.Bot.Types;
+using Medium.Telegram;
+using iconic.api.Medium.Telegram;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -13,21 +15,25 @@ public class TelegramController : Controller
 {
     public IConfiguration _configuration;
     private readonly IMessageProcessor _messageProcessor;
-    public TelegramController(IConfiguration configuration, IMessageProcessor messageProcessor)
+    private readonly TelegramService _telegramService;
+    public TelegramController(IConfiguration configuration, IMessageProcessor messageProcessor, TelegramService telegramService)
     {
         _configuration = configuration;
         _messageProcessor = messageProcessor;
+        _telegramService = telegramService;
     }
 
     [HttpPost]
     public void Post([FromBody]Message message)
     {
-        Sender s = new Sender(_configuration);
+        //Sender s = new Sender(_configuration);
     }
 
     [HttpPost("incoming")]
-    public async Task IncomingMessage([FromForm]Update incomingMessage)
+    public async Task<bool> IncomingMessage(Update incomingMessage)
     {
         var response = await _messageProcessor.Process(incomingMessage.Message.Text);
+        var sender = new Sender(_telegramService).SendMessage(response, incomingMessage.Message.Chat.Id);
+        return true;
     }
 }

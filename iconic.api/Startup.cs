@@ -15,6 +15,8 @@ using iconic.common.Services.CorporateBuzzWords;
 using iconic.common;
 using iconic.common.Services.CopyCat;
 using iconic.api.Medium.Telegram;
+using iconic.common.Models.Telegram;
+using System.IO;
 
 namespace iconic.api
 {
@@ -35,6 +37,8 @@ namespace iconic.api
             services.AddScoped<ICustomService, CopyCatRepeater>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
             services.AddHttpClient<TelegramService>();
+
+            services.Configure<TelegramOptions>(Configuration.GetSection("Telegram"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +55,7 @@ namespace iconic.api
                 app.UseHttpsRedirection();
             }
 
-            
+
             app.UseMvc();
         }
     }

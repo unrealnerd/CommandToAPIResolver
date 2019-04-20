@@ -11,9 +11,9 @@ namespace Medium.Telegram
         {
             _telegramService = telegramService;
         }
-        public async Task SendMessage(string body)
+        public async Task SendMessage(string body, long chatId)
         {
-            await _telegramService.SendMessage(body,"");
+            await _telegramService.SendMessage(body, chatId);
         }
     }
 }
