@@ -16,11 +16,11 @@ Once you set up Twilio sandbox for you go ahead and update your values of the fo
 
 This will use generate a radom BS Buzzword using [Corporate Bull Shit Buzzword API](https://github.com/sameerkumar18/corporate-bs-generator-api) as a reply on Whatsapp.
 
-Small demo on how this application interacting with Corporate Bull Shit API and using Twilio WhatsApp API
+Small demo on how this application interacting with Corporate Bull Shit API and using Twilio WhatsApp API as medium
 
 ![Twilio Whatsapp BotConductor](images/botconductorwhatsapp.gif)
 
-Same demo using Telegram API
+Same demo using Telegram API as medium
 
 ![Telegram BotConductor](images/botconductortelegram.gif)
 
