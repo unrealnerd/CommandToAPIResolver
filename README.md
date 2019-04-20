@@ -3,7 +3,7 @@
 This Application should be able to invoke a specified API based on the keyword. eg: if `cbs\` is sent it should call the [Corporate Bull Shit Buzzword API](https://github.com/sameerkumar18/corporate-bs-generator-api) and show the reply in any of this mediums `[Whatsapp, Telergam, WebPage]`.
 
 
-Right now This application uses **Twilio whatsapp sandbox**/ **Telegram Bots API** and **Corporate Bull Shit Buzzword API** for messages sent in this format `cbs\<anything>`. 
+Right now This application uses **Twilio whatsapp sandbox**/ **Telegram Bots API** and **Corporate Bull Shit Buzzword API** for messages sent in this format `cbs\`. 
 
 Once you set up Twilio sandbox for you go ahead and update your values of the following settings.
 

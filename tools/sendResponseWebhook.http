@@ -28,17 +28,17 @@ GET https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+Yo
 ### TELEGRAM API ######
 
 ### Get Updates ###
-GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/getUpdates HTTP/1.1
+GET https://api.telegram.org/bot{{TelegramBotConductorAPIKey}}/getUpdates HTTP/1.1
 
 ### SetWebHook ###
-GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/setWebhook?url={{telegramWebHookUrl}} HTTP/1.1
+GET https://api.telegram.org/bot{{TelegramBotConductorAPIKey}}/setWebhook?url={{telegramWebHookUrl}} HTTP/1.1
 
 ### GetWebHook Information ###
-GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/getWebhookInfo HTTP/1.1
+GET https://api.telegram.org/bot{{TelegramBotConductorAPIKey}}/getWebhookInfo HTTP/1.1
 
 
 ### Send Message ###
-GET https://api.telegram.org/bot{{TelegramGuideMeInBangaloreAPIKKey}}/sendMessage?chat_id=666535987&text=testtesttest HTTP/1.1
+GET https://api.telegram.org/bot{{TelegramBotConductorAPIKey}}/sendMessage?chat_id=666535987&text=testtesttest HTTP/1.1
 
 
 ### Post Message to Webhook###
