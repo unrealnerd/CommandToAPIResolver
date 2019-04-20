@@ -25,4 +25,7 @@ Small demo on how this application interacting with Corporate Bull Shit API and 
 - [x] Integrate Telegram medium
 - [ ] Containerize the application
 - [ ] Integrate a web controller which will reply with value for the api invoked
+- [ ] Integrate Dota Open API
+- [ ] Integrate Alexa Medium
+- [ ] Integrate Google Assistant Medium
 - [ ] Use JWT and secure it like [this](https://dev.to/bitsmonkey/jwt-in-dotnet-core-9bg)
