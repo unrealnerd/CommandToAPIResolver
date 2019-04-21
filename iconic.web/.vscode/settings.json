@@ -1,0 +1,9 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "C:\\code\\iconic_dotnet\\iconic.web\\Conversation.db",
+            "dialect": "SQLite",
+            "name": "ConvesationDb"
+        }
+    ]
+}

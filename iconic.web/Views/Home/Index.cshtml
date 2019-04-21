@@ -1,0 +1,24 @@
+@addTagHelper *, iconic.web
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <form asp-action="Search">
+            <div class="row">
+                <div class="col-md-6">
+                <input class="form-control" id="message" name="message" />
+            </div>
+            <div class="col-md-1">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-7">              
+        @await Component.InvokeAsync("ConversationList")
+    </div>
+</div>

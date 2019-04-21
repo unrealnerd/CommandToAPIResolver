@@ -1,0 +1,9 @@
+@model IEnumerable<iconic.web.Models.Conversation>
+
+<h3>Recent Conversations</h3>
+<ul>
+    @foreach (var c in Model)
+    {
+        <li>@c.Message</li>
+    }
+</ul>

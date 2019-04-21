@@ -1,4 +1,4 @@
-@apiendpoint = http://1872ff7a.ngrok.io
+@apiendpoint = https://localhost:5100
 @whatsappcontrollerUrl = {{apiendpoint}}/api/whatsapp
 @telegramWebHookUrl =  {{apiendpoint}}/api/telegram/incoming
 

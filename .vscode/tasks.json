@@ -2,14 +2,46 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "cleanweb",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/iconic.web/iconic.web.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "buildweb",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}"
+                "${workspaceFolder}/iconic.web/iconic.web.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn":["cleanweb"]
+        },
+        {
+            "label": "cleanapi",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/iconic.api/iconic.api.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "buildapi",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/iconic.api/iconic.api.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn":["cleanapi"]
         }
     ]
 }
