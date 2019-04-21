@@ -1,4 +1,4 @@
-@apiendpoint = https://8ba2b25f.ngrok.io
+@apiendpoint = http://1872ff7a.ngrok.io
 @whatsappcontrollerUrl = {{apiendpoint}}/api/whatsapp
 @telegramWebHookUrl =  {{apiendpoint}}/api/telegram/incoming
 
@@ -49,3 +49,9 @@ Content-Type: application/json
     "body":"Yo Yo",
     "tophonenumber":"whatsapp:+919916242328"
 }
+
+### Get Players Info ###
+GET https://api.opendota.com/api/players/76561198050295075 HTTP/1.1
+
+### Gets Pro Matches Info ###
+GET https://api.opendota.com/api/proMatches HTTP/1.1

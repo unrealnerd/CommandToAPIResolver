@@ -27,7 +27,7 @@ public class TelegramController : Controller
     public async Task<bool> IncomingMessage(Update incomingMessage)
     {
         var response = await _messageProcessor.Process(incomingMessage.Message.Text);
-        var sender = new Sender(_telegramService).SendMessage(response, incomingMessage.Message.Chat.Id);
+        var sender = _telegramService.SendMessage(response, incomingMessage.Message.Chat.Id);
         return true;
     }
 }

@@ -15,17 +15,18 @@ public class WhatsAppController : TwilioController
 {
     public IConfiguration _configuration;
     private readonly IMessageProcessor _messageProcessor;
-    public WhatsAppController(IConfiguration configuration, IMessageProcessor messageProcessor)
+    private readonly WhatsAppService _whatsAppService;
+    public WhatsAppController(IConfiguration configuration, IMessageProcessor messageProcessor, WhatsAppService whatsAppService)
     {
         _configuration = configuration;
         _messageProcessor = messageProcessor;
+        _whatsAppService = whatsAppService;
     }
 
     [HttpPost]
     public void Post([FromBody]WhatsAppMessage message)
-    {
-        Sender s = new Sender(_configuration);
-        s.SendMessage(message.Body, message.ToPhoneNumber);
+    {        
+        _whatsAppService.SendMessage(message.Body, message.ToPhoneNumber);
     }
 
     [HttpPost("incoming")]    
