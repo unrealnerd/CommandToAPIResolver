@@ -1,4 +1,4 @@
-@apiendpoint = https://localhost:5100
+@apiendpoint = http://localhost:5001
 @whatsappcontrollerUrl = {{apiendpoint}}/api/whatsapp
 @telegramWebHookUrl =  {{apiendpoint}}/api/telegram/incoming
 
