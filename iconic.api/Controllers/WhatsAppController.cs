@@ -32,8 +32,6 @@ public class WhatsAppController : TwilioController
     [HttpPost("incoming")]    
     public async Task<TwiMLResult> IncomingMessage([FromForm]SmsRequest incomingMessage)
     {
-        var messagingResponse = new MessagingResponse();
-
         var response = await _messageProcessor.Process(incomingMessage.Body);
         
         return TwiML(new MessagingResponse().Message(response));
