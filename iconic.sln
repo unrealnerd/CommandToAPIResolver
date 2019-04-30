@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iconic.telegram", "iconic.t
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iconic.whatsapp", "iconic.whatsapp\iconic.whatsapp.csproj", "{02845E30-197B-40D6-A927-4375854CB185}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iconic.slack", "iconic.slack\iconic.slack.csproj", "{0AAF9429-E657-4EB8-882A-87D8F982559C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{02845E30-197B-40D6-A927-4375854CB185}.Release|x64.Build.0 = Release|Any CPU
 		{02845E30-197B-40D6-A927-4375854CB185}.Release|x86.ActiveCfg = Release|Any CPU
 		{02845E30-197B-40D6-A927-4375854CB185}.Release|x86.Build.0 = Release|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Debug|x64.Build.0 = Debug|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Debug|x86.Build.0 = Debug|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Release|x64.ActiveCfg = Release|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Release|x64.Build.0 = Release|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Release|x86.ActiveCfg = Release|Any CPU
+		{0AAF9429-E657-4EB8-882A-87D8F982559C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

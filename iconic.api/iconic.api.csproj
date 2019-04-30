@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\iconic.slack\iconic.slack.csproj" />
     <ProjectReference Include="..\iconic.common\iconic.common.csproj" />
     <ProjectReference Include="..\iconic.whatsapp\iconic.whatsapp.csproj" />
     <ProjectReference Include="..\iconic.telegram\iconic.telegram.csproj" />
