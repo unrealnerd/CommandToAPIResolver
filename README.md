@@ -20,7 +20,7 @@ Same demo using Telegram API as medium
 
 and Slack as well
 
-![Slack BotConductor](images/botconductorslack.png)
+![Slack BotConductor](images/botconductorslack.gif)
 
 ### TODO
 
