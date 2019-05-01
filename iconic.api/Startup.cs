@@ -17,6 +17,7 @@ using iconic.common.Services.CopyCat;
 using System.IO;
 using iconic.telegram;
 using iconic.whatsapp;
+using iconic.slack;
 
 namespace iconic.api
 {
@@ -37,10 +38,12 @@ namespace iconic.api
             services.AddScoped<ICustomService, CopyCatRepeater>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
             services.AddHttpClient<TelegramService>();
+            services.AddHttpClient<SlackService>();
             services.AddScoped<WhatsAppService>();
 
             services.Configure<TelegramOptions>(Configuration.GetSection("Telegram"));
             services.Configure<WhatsAppOptions>(Configuration.GetSection("Twilio"));
+            services.Configure<SlackOptions>(Configuration.GetSection("Slack"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

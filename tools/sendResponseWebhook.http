@@ -1,6 +1,7 @@
 @apiendpoint = http://localhost:5001
 @whatsappcontrollerUrl = {{apiendpoint}}/api/whatsapp
 @telegramWebHookUrl =  {{apiendpoint}}/api/telegram/incoming
+@slackWebHookUrl =  {{apiendpoint}}/api/slack
 
 ###Send a message on whats app
 POST {{whatsappcontrollerUrl}}  HTTP/1.1
@@ -55,3 +56,24 @@ GET https://api.opendota.com/api/players/76561198050295075 HTTP/1.1
 
 ### Gets Pro Matches Info ###
 GET https://api.opendota.com/api/proMatches HTTP/1.1
+
+### Slack API- challenge request ###
+POST {{slackWebHookUrl}}/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "Jhj5dZrVaK7ZwHHjRyZWjbDl",
+    "challenge": "3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P",
+    "type": "url_verification"
+}
+
+### Slack API- Send Reply ###
+POST https://slack.com/api/chat.postMessage HTTP/1.1
+Content-Type: application/json; charset=utf-8;
+Authorization: Bearer {{SlackAPIKey}}
+
+{
+    "channel": "DJCF93U86",
+    "text": "I hope the tour went well, Mr. Wonka."    
+}
+
