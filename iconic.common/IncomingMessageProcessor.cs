@@ -18,7 +18,7 @@ namespace iconic.common
         {
             ICustomService customService = null;
 
-            switch (message.Split('/')[1])
+            switch (message.Split('/')[0])
             {
                 case Constants.CorporateBullShitBuzzWord:
                     customService = _customServices.Where(cs=>cs.CanExecute(Constants.CorporateBullShitBuzzWord)).First();

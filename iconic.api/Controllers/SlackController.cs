@@ -24,15 +24,15 @@ public class SlackController : Controller
     [HttpPost("incoming")]
     public async Task<dynamic> IncomingMessage(Message incomingMessage)
     {
-        if (incomingMessage.type == "url_verification")
+        if (incomingMessage.Type == "url_verification")
         {
             //TODO: Verify the signature if its from slack
-            return Ok(new { Challenge = incomingMessage.challenge });
+            return Ok(new { incomingMessage.Challenge });
         }
-        else if (incomingMessage.@event.type == "message" && !string.IsNullOrEmpty(incomingMessage.@event.user))
+        else if (incomingMessage.@Event.Type == "message" && !string.IsNullOrEmpty(incomingMessage.@Event.User))
         {
-            var response = await _messageProcessor.Process(incomingMessage.@event.text);
-            await SlackService.SendMessage(response, incomingMessage.@event.channel);
+            var response = await _messageProcessor.Process(incomingMessage.@Event.Text);
+            await SlackService.SendMessage(response, incomingMessage.@Event.Channel);
             return Ok();
         }
         return Ok();

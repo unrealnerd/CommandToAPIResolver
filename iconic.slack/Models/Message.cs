@@ -1,28 +1,45 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace iconic.slack
 {
     public class Event
     {
-        public string type { get; set; }
-        public string user { get; set; }
-        public string text { get; set; }
-        public string ts { get; set; }
-        public string channel { get; set; }
-        public string event_ts { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
+        [JsonProperty("user")]
+        public string User { get; set; }
+        
+        [JsonProperty("text")]
+        public string Text { get; set; }
+        [JsonProperty("ts")]
+        public string Ts { get; set; }
+        [JsonProperty("channel")]
+        public string Channel { get; set; }
+        [JsonProperty("event_ts")]
+        public string EventTs { get; set; }
 
     }
 
     public class Message
     {
-        public string token { get; set; }
-        public string team_id { get; set; }
-        public string api_app_id { get; set; }
-        public Event @event { get; set; }
-        public string type { get; set; }
-        public string event_id { get; set; }
-        public long event_time { get; set; }
-        public List<string> authed_users { get; set; }        
-        public string challenge { get; set; }
+        [JsonProperty("token")]
+        public string Token { get; set; }
+        [JsonProperty("team_id")]
+        public string TeamId { get; set; }
+        [JsonProperty("api_app_id")]
+        public string ApiAppId { get; set; }
+        [JsonProperty("event")]
+        public Event @Event { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
+        [JsonProperty("event_id")]
+        public string EventId { get; set; }
+        [JsonProperty("event_time")]
+        public long EventTime { get; set; }
+        [JsonProperty("authed_users")]
+        public List<string> AuthedUsers { get; set; }        
+        [JsonProperty("challenge")]
+        public string Challenge { get; set; }
     }
 }
