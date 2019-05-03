@@ -2,10 +2,10 @@
 
 ![Twilio Whatsapp BotConductor](images/botconductor.jpg)
 
-This Application should be able to invoke a specified API based on the keyword. eg: if `cbs\` is sent it should call the [Corporate Bull Shit Buzzword API](https://github.com/sameerkumar18/corporate-bs-generator-api) and show the reply in any of this mediums `[Whatsapp, Telergam, WebPage]`.
+This Application should be able to invoke a specified API based on the keyword. eg: if `cbs/` is sent it should call the [Corporate Bull Shit Buzzword API](https://github.com/sameerkumar18/corporate-bs-generator-api) and show the reply in any of this mediums `[Whatsapp, Telergam, Slack, WebPage]`.
 
 
-Right now This application uses **Twilio whatsapp sandbox**/ **Telegram Bots API**/ **Slack Bots API** and **Corporate Bull Shit Buzzword API** for messages sent in this format `cbs\`. 
+Right now This application uses **Twilio whatsapp sandbox**/ **Telegram Bots API**/ **Slack Bots API** and **Corporate Bull Shit Buzzword API** for messages sent in this format `cbs/`. 
 
 Once you set up Twilio/ Telgram/ Slack, go ahead and update your values of the respective settings in `appsettings.json`. or use `dotnet user-secrets`
 
