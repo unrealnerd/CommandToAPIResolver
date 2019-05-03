@@ -1,5 +1,9 @@
 # Bot Conductor
 
+<div style="text-align:center">
+    <img src="images/botconductor.jpg"  width="500" height="400" >
+</div>
+
 This Application should be able to invoke a specified API based on the keyword. eg: if `cbs\` is sent it should call the [Corporate Bull Shit Buzzword API](https://github.com/sameerkumar18/corporate-bs-generator-api) and show the reply in any of this mediums `[Whatsapp, Telergam, WebPage]`.
 
 
@@ -12,16 +16,19 @@ This will use generate a radom BS Buzzword using [Corporate Bull Shit Buzzword A
 
 Small demo on how this application interacting with Corporate Bull Shit API and using Twilio WhatsApp API as medium
 
-![Twilio Whatsapp BotConductor](images/botconductorwhatsapp.gif)
-
+<div style="text-align:center">
+    <img src="images/botconductorwhatsapp.gif"  width="500" height="400" >
+</div>
 Same demo using Telegram API as medium
 
-![Telegram BotConductor](images/botconductortelegram.gif)
-
+<div style="text-align:center">
+    <img src="images/botconductortelegram.gif"  width="500" height="400" >
+</div>
 and Slack as well
 
-![Slack BotConductor](images/botconductorslack.gif)
-
+<div style="text-align:center">
+    <img src="images/botconductorslack.gif"  width="500" height="400" >
+</div>
 ### TODO
 
 - [x] Integrate Telegram medium
