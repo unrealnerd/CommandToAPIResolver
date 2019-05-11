@@ -1,0 +1,22 @@
+@apiendpoint = http://localhost:5001
+@slackWebHookUrl =  {{apiendpoint}}/api/slack
+
+### Slack API- challenge request ###
+POST {{slackWebHookUrl}}/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "Jhj5dZrVaK7ZwHHjRyZWjbDl",
+    "challenge": "3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P",
+    "type": "url_verification"
+}
+
+### Slack API- Send Reply ###
+POST https://slack.com/api/chat.postMessage HTTP/1.1
+Content-Type: application/json; charset=utf-8;
+Authorization: Bearer {{SlackAPIKey}}
+
+{
+    "channel": "DJCF93U86",
+    "text": "I hope the tour went well, Mr. Wonka."    
+}

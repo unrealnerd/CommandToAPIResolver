@@ -1,0 +1,16 @@
+@apiendpoint = http://localhost:5001
+
+### CORPORATE BULL SHIT
+GET https://corporatebs-generator.sameerkumar.website/ HTTP/1.1
+
+
+### GOOGLE STATIC MAPS API
+GET https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=12&size=400x400&key={{GoogleStaticMapsAPIKey}} HTTP/1.1
+
+### Get Players Info ###
+GET https://api.opendota.com/api/players/76561198050295075 HTTP/1.1
+
+### Gets Pro Matches Info ###
+GET https://api.opendota.com/api/proMatches HTTP/1.1
+
+
