@@ -3,7 +3,6 @@
 ### CORPORATE BULL SHIT
 GET https://corporatebs-generator.sameerkumar.website/ HTTP/1.1
 
-
 ### GOOGLE STATIC MAPS API
 GET https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=12&size=400x400&key={{GoogleStaticMapsAPIKey}} HTTP/1.1
 

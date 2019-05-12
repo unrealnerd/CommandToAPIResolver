@@ -18,6 +18,7 @@ using System.IO;
 using iconic.telegram;
 using iconic.whatsapp;
 using iconic.slack;
+using featureprovider.core.Models;
 
 namespace iconic.api
 {
@@ -40,6 +41,8 @@ namespace iconic.api
             services.AddHttpClient<TelegramService>();
             services.AddHttpClient<SlackService>();
             services.AddScoped<WhatsAppService>();
+            services.AddSingleton<IFeatureProvider, FeatureProvider>();
+            services.AddSingleton<IFeatureEvaluator, featureprovider.core.FeatureEvaluators.ConfigurationEvaluator>();
 
             services.Configure<TelegramOptions>(Configuration.GetSection("Telegram"));
             services.Configure<WhatsAppOptions>(Configuration.GetSection("Twilio"));
