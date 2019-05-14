@@ -21,7 +21,7 @@ namespace iconic.common
         {
             ICustomService customService = null;
 
-            if(new FeatureProvider(_featureEvaluators).Evaluate("Features:NLUEnabled") == "true")
+            if(new FeatureProvider(_featureEvaluators, FeatureProviderEnum.Redis).Evaluate("NLUEnabled") == "true")
             {
                 //TODO: Talk to NLU Service to extract Intent & Entity
             }

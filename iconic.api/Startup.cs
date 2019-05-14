@@ -41,8 +41,17 @@ namespace iconic.api
             services.AddHttpClient<TelegramService>();
             services.AddHttpClient<SlackService>();
             services.AddScoped<WhatsAppService>();
+            
+            // Feature Provider Library initial setup
             services.AddSingleton<IFeatureProvider, FeatureProvider>();
             services.AddSingleton<IFeatureEvaluator, featureprovider.core.FeatureEvaluators.ConfigurationEvaluator>();
+            services.AddSingleton<IFeatureEvaluator, featureprovider.core.FeatureEvaluators.RedisEvaluator>();
+            
+            services.AddStackExchangeRedisCache(options =>
+                {
+                    options.Configuration = Configuration.GetSection("FeatureProvider").GetValue<string>("RedisServer");
+                    options.InstanceName = Configuration.GetSection("FeatureProvider").GetValue<string>("RedisInstance");
+                });
 
             services.Configure<TelegramOptions>(Configuration.GetSection("Telegram"));
             services.Configure<WhatsAppOptions>(Configuration.GetSection("Twilio"));
