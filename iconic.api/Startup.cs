@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using iconic.common.Services;
 using iconic.common.Services.CorporateBuzzWords;
 using iconic.common;
 using iconic.common.Services.CopyCat;
-using System.IO;
 using iconic.telegram;
 using iconic.whatsapp;
 using iconic.slack;
-using featureprovider.core.Models;
+using featureprovider.core.Registry;
 
 namespace iconic.api
 {
@@ -42,20 +34,8 @@ namespace iconic.api
             services.AddHttpClient<SlackService>();
             services.AddScoped<WhatsAppService>();
             
-            // Feature Provider Library initial setup
-            services.AddSingleton<IFeatureProvider, FeatureProvider>();
-            services.AddSingleton<IFeatureEvaluator, featureprovider.core.FeatureEvaluators.ConfigurationEvaluator>();
-            services.AddSingleton<IFeatureEvaluator, featureprovider.core.FeatureEvaluators.RedisEvaluator>();
-            
-            services.AddStackExchangeRedisCache(options =>
-                {
-                    options.Configuration = Configuration.GetSection("FeatureProvider").GetValue<string>("RedisServer");
-                    options.InstanceName = Configuration.GetSection("FeatureProvider").GetValue<string>("RedisInstance");
-                });
-
-            services.Configure<TelegramOptions>(Configuration.GetSection("Telegram"));
-            services.Configure<WhatsAppOptions>(Configuration.GetSection("Twilio"));
-            services.Configure<SlackOptions>(Configuration.GetSection("Slack"));
+            // Feature Provider Library initial setup            
+            services.AddFeatureProvider(Configuration["FeatureProvider:RedisServer"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
