@@ -35,7 +35,7 @@ namespace iconic.api
             services.AddScoped<WhatsAppService>();
             
             // Feature Provider Library initial setup            
-            services.AddFeatureProvider(Configuration["FeatureProvider:RedisServer"]);
+            services.AddFeatureProvider(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

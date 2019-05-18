@@ -10,18 +10,18 @@ namespace iconic.common
     public class IncomingMessageProcessor : IMessageProcessor
     {
         private readonly IEnumerable<ICustomService> _customServices;
-        private readonly IEnumerable<IFeatureEvaluator> _featureEvaluators;
-        public IncomingMessageProcessor(IEnumerable<ICustomService> customServices, IEnumerable<IFeatureEvaluator> featureEvaluators)
+        private readonly IFeatureProvider _featureProvider;
+        public IncomingMessageProcessor(IEnumerable<ICustomService> customServices, IFeatureProvider featureprovider)
         {
             _customServices = customServices;
-            _featureEvaluators = featureEvaluators;
+            _featureProvider = featureprovider;
         }
 
         public async Task<string> Process(string message)
         {
             ICustomService customService = null;
 
-            if(new FeatureProvider(_featureEvaluators, FeatureProviderEnum.Redis).Evaluate("NLUEnabled") == "true")
+            if(_featureProvider.Evaluate("NLUEnabled") == "true")
             {
                 //TODO: Talk to NLU Service to extract Intent & Entity
             }
