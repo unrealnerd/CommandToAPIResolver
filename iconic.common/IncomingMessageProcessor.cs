@@ -11,7 +11,9 @@ namespace iconic.common
     {
         private readonly IEnumerable<ICustomService> _customServices;
         private readonly IFeatureProvider _featureProvider;
-        public IncomingMessageProcessor(IEnumerable<ICustomService> customServices, IFeatureProvider featureprovider)
+        public IncomingMessageProcessor(IEnumerable<ICustomService> customServices,
+         IFeatureProvider featureprovider
+        )
         {
             _customServices = customServices;
             _featureProvider = featureprovider;
