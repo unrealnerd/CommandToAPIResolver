@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "clean",
-                "${workspaceFolder}/iconic.api/iconic.api.csproj"
+                "${workspaceFolder}/bitsmonkey.api/bitsmonkey.api.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -17,7 +17,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/iconic.api/iconic.api.csproj"
+                "${workspaceFolder}/bitsmonkey.api/bitsmonkey.api.csproj"
             ],
             "problemMatcher": "$msCompile",
             "dependsOn":["cleanapi"]
