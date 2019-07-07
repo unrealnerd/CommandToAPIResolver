@@ -26,14 +26,27 @@ namespace bitsmonkey.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+            })
+            .AddXmlDataContractSerializerFormatters()
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<ICustomService, BuzzWordGenerator>();
             services.AddScoped<ICustomService, CopyCatRepeater>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
             services.AddHttpClient<TelegramService>();
             services.AddHttpClient<SlackService>();
             services.AddScoped<WhatsAppService>();
-            
+
             // Feature Provider Library initial setup            
             services.AddFeatureProvider(Configuration);
         }
@@ -51,8 +64,8 @@ namespace bitsmonkey.api
                 app.UseHsts();
                 app.UseHttpsRedirection();
             }
-
-
+            
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }

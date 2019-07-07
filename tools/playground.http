@@ -1,12 +1,17 @@
 @apiendpoint = http://localhost:5001
 
+### CHECK METHODS ALLOWED
+OPTIONS {{apiendpoint}}/api/web/incoming HTTP/1.1
+Access-Control-Request-Method: POST
+Origin: http://localhost:4200
+
+### WEB CONTROLLER FOR COMMANDS
 POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
     "Message": "cbs"
 }
-
 
 ### CORPORATE BULL SHIT
 GET https://corporatebs-generator.sameerkumar.website/ HTTP/1.1
