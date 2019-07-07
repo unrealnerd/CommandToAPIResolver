@@ -7,11 +7,11 @@ using Models;
 [Route("api/[controller]")]
 [ApiController]
 public class WebController : Controller
-{    
-    private readonly IMessageProcessor _messageProcessor;    
+{
+    private readonly IMessageProcessor _messageProcessor;
     public WebController(IMessageProcessor messageProcessor)
-    {        
-        _messageProcessor = messageProcessor;        
+    {
+        _messageProcessor = messageProcessor;
     }
 
 
@@ -19,7 +19,7 @@ public class WebController : Controller
     public async Task<IActionResult> Incoming(IncomingMessage incomingMessage)
     {
         var response = await _messageProcessor.Process(incomingMessage.Message);
-        
-        return Ok(response);
+
+        return Ok(new OutgoingMessage { Message = response, Template = "Quote" });
     }
 }

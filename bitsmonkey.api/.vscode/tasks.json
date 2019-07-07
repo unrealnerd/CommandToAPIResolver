@@ -20,7 +20,7 @@
                 "${workspaceFolder}"
             ],
             "problemMatcher": "$msCompile",
-            "dependsOn":["cleanapi"]
+            "dependsOn":[""]
         }
     ]
 }
