@@ -28,8 +28,10 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
         {
             CorporateBuzzWordResponse randomBuzzResponse = null;
             
+            //TODO: Make this a method which takes generic and return response from a service
             using (HttpClient _client = new HttpClient())
             {
+                //TODO: Move this URL to configurations
                 var randomBuzzStream = _client.GetStreamAsync("https://corporatebs-generator.sameerkumar.website");
 
                 randomBuzzResponse = new DataContractJsonSerializer(typeof(CorporateBuzzWordResponse)).ReadObject(await randomBuzzStream) as CorporateBuzzWordResponse;

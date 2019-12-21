@@ -23,7 +23,7 @@ namespace bitsmonkey.common
         {
             ICustomService customService = null;
 
-            if(_featureProvider.Evaluate("NLUEnabled") == "true")
+            if (_featureProvider.Evaluate("NLUEnabled") == "true")
             {
                 //TODO: Talk to NLU Service to extract Intent & Entity
             }
@@ -31,10 +31,13 @@ namespace bitsmonkey.common
             switch (message.Split('/')[0])
             {
                 case Constants.CorporateBullShitBuzzWord:
-                    customService = _customServices.Where(cs=>cs.CanExecute(Constants.CorporateBullShitBuzzWord)).First();
+                    customService = _customServices.Where(cs => cs.CanExecute(Constants.CorporateBullShitBuzzWord)).First();
+                    break;
+                case Constants.RandomDogGenerator:
+                    customService = _customServices.Where(cs => cs.CanExecute(Constants.RandomDogGenerator)).First();
                     break;
                 default:
-                    customService = _customServices.Where(cs=>cs.CanExecute(Constants.CopyCat)).First();
+                    customService = _customServices.Where(cs => cs.CanExecute(Constants.CopyCat)).First();
                     break;
             }
 

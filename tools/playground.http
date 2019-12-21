@@ -10,7 +10,7 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "Message": "cbs"
+    "Message": "rd"
 }
 
 ### CORPORATE BULL SHIT
@@ -26,3 +26,5 @@ GET https://api.opendota.com/api/players/76561198050295075 HTTP/1.1
 GET https://api.opendota.com/api/proMatches HTTP/1.1
 
 
+### Gets Pro Matches Info ###
+GET https://dog.ceo/api/breeds/image/random HTTP/1.1

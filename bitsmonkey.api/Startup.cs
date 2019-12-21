@@ -41,6 +41,7 @@ namespace bitsmonkey.api
             .AddXmlDataContractSerializerFormatters()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<ICustomService, BuzzWordGenerator>();
+            services.AddScoped<ICustomService, RandomDogGenerator>();
             services.AddScoped<ICustomService, CopyCatRepeater>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
             services.AddHttpClient<TelegramService>();
