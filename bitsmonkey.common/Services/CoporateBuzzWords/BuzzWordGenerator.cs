@@ -19,12 +19,12 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
             return messageKey.Equals(Constants.CorporateBullShitBuzzWord);
         }
 
-        public async Task<string> Execute(string message)
+        public async Task<dynamic> Execute(string message)
         {
             return await GenerateRandomBuzz();
         }
 
-        private async Task<string> GenerateRandomBuzz()
+        private async Task<dynamic> GenerateRandomBuzz()
         {
             CorporateBuzzWordResponse randomBuzzResponse = null;
             

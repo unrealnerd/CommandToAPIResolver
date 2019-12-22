@@ -20,6 +20,6 @@ public class WebController : Controller
     {
         var response = await _messageProcessor.Process(incomingMessage.Message);
 
-        return Ok(new OutgoingMessage { Message = response, Template = "Quote" });
+        return Ok(new { Message = response, Template = "Quote" });
     }
 }

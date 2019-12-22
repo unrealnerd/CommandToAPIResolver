@@ -4,6 +4,6 @@ namespace bitsmonkey.common.Services
 {
     public interface IMessageProcessor
     {
-         Task<string> Process(string message);
+         Task<dynamic> Process(string message);
     }
 }

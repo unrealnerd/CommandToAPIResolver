@@ -19,7 +19,7 @@ namespace bitsmonkey.common
             _featureProvider = featureprovider;
         }
 
-        public async Task<string> Process(string message)
+        public async Task<dynamic> Process(string message)
         {
             ICustomService customService = null;
 

@@ -3,7 +3,7 @@ namespace bitsmonkey.common.Services
 {
     public interface ICustomService
     {
-        Task<string> Execute(string message);
+        Task<dynamic> Execute(string message);
 
         bool CanExecute(string messageKey);
     }

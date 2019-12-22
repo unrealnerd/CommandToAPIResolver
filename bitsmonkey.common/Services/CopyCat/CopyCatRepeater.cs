@@ -9,9 +9,9 @@ namespace bitsmonkey.common.Services.CopyCat
             return messageKey.Equals(Constants.CopyCat);
         }
 
-        public Task<string> Execute(string message)
+        public Task<dynamic> Execute(string message)
         {
-            return Task.Run(() => $"The Copy Cat says: {message}");
+            return Task.Run<dynamic>(() => $"The Copy Cat says: {message}");
         }
     }
 }
