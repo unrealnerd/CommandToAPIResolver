@@ -4,19 +4,19 @@ using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
 namespace bitsmonkey.common.Services.CorporateBuzzWords
-{    
+{
     [DataContract]
     public class CorporateBuzzWordResponse
     {
-        [DataMember(Name="phrase")]
-        public string Phrase { get; set; }        
+        [DataMember(Name = "phrase")]
+        public string Phrase { get; set; }
     }
 
     public class BuzzWordGenerator : ICustomService
     {
         public bool CanExecute(string messageKey)
         {
-            return messageKey.Equals(Constants.CorporateBullShitBuzzWord);
+            return messageKey.Equals(Constant.Services.CorporateBullShitBuzzWord);
         }
 
         public async Task<dynamic> Execute(string message)
@@ -27,7 +27,7 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
         private async Task<dynamic> GenerateRandomBuzz()
         {
             CorporateBuzzWordResponse randomBuzzResponse = null;
-            
+
             //TODO: Make this a method which takes generic and return response from a service
             using (HttpClient _client = new HttpClient())
             {
@@ -36,7 +36,11 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
 
                 randomBuzzResponse = new DataContractJsonSerializer(typeof(CorporateBuzzWordResponse)).ReadObject(await randomBuzzStream) as CorporateBuzzWordResponse;
             }
-            return randomBuzzResponse?.Phrase;
+            return new
+            {
+                Message = randomBuzzResponse?.Phrase,
+                Template = Constant.Template.QUOTE
+            };
         }
     }
 

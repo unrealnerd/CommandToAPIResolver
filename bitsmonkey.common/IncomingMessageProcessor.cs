@@ -30,14 +30,14 @@ namespace bitsmonkey.common
 
             switch (message.Split('/')[0])
             {
-                case Constants.CorporateBullShitBuzzWord:
-                    customService = _customServices.Where(cs => cs.CanExecute(Constants.CorporateBullShitBuzzWord)).First();
+                case Constant.Services.CorporateBullShitBuzzWord:
+                    customService = _customServices.Where(cs => cs.CanExecute(Constant.Services.CorporateBullShitBuzzWord)).First();
                     break;
-                case Constants.RandomDogGenerator:
-                    customService = _customServices.Where(cs => cs.CanExecute(Constants.RandomDogGenerator)).First();
+                case Constant.Services.RandomDogGenerator:
+                    customService = _customServices.Where(cs => cs.CanExecute(Constant.Services.RandomDogGenerator)).First();
                     break;
                 default:
-                    customService = _customServices.Where(cs => cs.CanExecute(Constants.CopyCat)).First();
+                    customService = _customServices.Where(cs => cs.CanExecute(Constant.Services.CopyCat)).First();
                     break;
             }
 

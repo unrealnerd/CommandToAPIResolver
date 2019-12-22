@@ -4,11 +4,11 @@ using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
 namespace bitsmonkey.common.Services.CorporateBuzzWords
-{    
+{
     [DataContract]
     public class RandomDogGeneratorResponse
     {
-        [DataMember(Name="message")]
+        [DataMember(Name = "message")]
         public string ImgUrl { get; set; }
     }
 
@@ -16,7 +16,7 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
     {
         public bool CanExecute(string messageKey)
         {
-            return messageKey.Equals(Constants.RandomDogGenerator);
+            return messageKey.Equals(Constant.Services.RandomDogGenerator);
         }
 
         public async Task<dynamic> Execute(string message)
@@ -27,7 +27,7 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
         private async Task<dynamic> GenerateRandomDog()
         {
             RandomDogGeneratorResponse randomDogGeneratorResponse = null;
-            
+
             //TODO: Make this a method which takes generic and return response from a service
             using (HttpClient _client = new HttpClient())
             {
@@ -36,7 +36,11 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
 
                 randomDogGeneratorResponse = new DataContractJsonSerializer(typeof(RandomDogGeneratorResponse)).ReadObject(await randomDogStream) as RandomDogGeneratorResponse;
             }
-            return randomDogGeneratorResponse?.ImgUrl;
+            return new
+            {
+                ImageUrl = randomDogGeneratorResponse?.ImgUrl,
+                Template = Constant.Template.IMAGE
+            };
         }
     }
 

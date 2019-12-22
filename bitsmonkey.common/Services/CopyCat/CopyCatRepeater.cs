@@ -6,12 +6,16 @@ namespace bitsmonkey.common.Services.CopyCat
     {
         public bool CanExecute(string messageKey)
         {
-            return messageKey.Equals(Constants.CopyCat);
+            return messageKey.Equals(Constant.Services.CopyCat);
         }
 
         public Task<dynamic> Execute(string message)
         {
-            return Task.Run<dynamic>(() => $"The Copy Cat says: {message}");
+            return Task.Run<dynamic>(() => new
+            {
+                Message = $"The Copy Cat says: {message}",
+                Template = Constant.Template.QUOTE
+            });
         }
     }
 }
