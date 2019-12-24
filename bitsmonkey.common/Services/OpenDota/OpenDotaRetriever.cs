@@ -54,7 +54,7 @@ namespace bitsmonkey.common.Services.CorporateBuzzWords
             return new
             {
                 Message = promatchesResponse,
-                Template = Constant.Template.TABLE
+                Template = Constant.Template.DATAGRID
             };
         }
     }

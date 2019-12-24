@@ -6,7 +6,7 @@ namespace bitsmonkey.common.Services
         {
             public const string IMAGE = "IMAGE";
             public const string QUOTE = "QUOTE";
-            public const string TABLE = "TABLE";
+            public const string DATAGRID = "DATAGRID";
         }
 
         public static class Services
