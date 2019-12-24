@@ -43,6 +43,7 @@ namespace bitsmonkey.api
             services.AddScoped<ICustomService, BuzzWordGenerator>();
             services.AddScoped<ICustomService, RandomDogGenerator>();
             services.AddScoped<ICustomService, CopyCatRepeater>();
+            services.AddScoped<ICustomService, OpenDotaRetriever>();
             services.AddScoped<IMessageProcessor, IncomingMessageProcessor>();
             services.AddHttpClient<TelegramService>();
             services.AddHttpClient<SlackService>();

@@ -36,6 +36,9 @@ namespace bitsmonkey.common
                 case Constant.Services.RandomDogGenerator:
                     customService = _customServices.Where(cs => cs.CanExecute(Constant.Services.RandomDogGenerator)).First();
                     break;
+                case Constant.Services.OpenDotaRetriever:
+                    customService = _customServices.Where(cs => cs.CanExecute(Constant.Services.OpenDotaRetriever)).First();
+                    break;
                 default:
                     customService = _customServices.Where(cs => cs.CanExecute(Constant.Services.CopyCat)).First();
                     break;
