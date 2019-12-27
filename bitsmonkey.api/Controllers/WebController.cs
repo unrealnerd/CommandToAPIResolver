@@ -3,15 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using bitsmonkey.common.Services;
 using Models;
+using Microsoft.Extensions.Options;
+using bitsmonkey.common.Search;
 
 [Route("api/[controller]")]
 [ApiController]
 public class WebController : Controller
 {
     private readonly IMessageProcessor _messageProcessor;
-    public WebController(IMessageProcessor messageProcessor)
+    private readonly IOptions<ServicesSettings> servicesSettings;
+
+    public WebController(IMessageProcessor messageProcessor, IOptions<ServicesSettings> servicesSettings)
     {
         _messageProcessor = messageProcessor;
+        this.servicesSettings = servicesSettings;
     }
 
 

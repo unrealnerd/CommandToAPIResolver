@@ -11,6 +11,7 @@ using bitsmonkey.telegram;
 using bitsmonkey.whatsapp;
 using bitsmonkey.slack;
 using featureprovider.core.Registry;
+using bitsmonkey.common.Search;
 
 namespace bitsmonkey.api
 {
@@ -51,6 +52,12 @@ namespace bitsmonkey.api
 
             // Feature Provider Library initial setup            
             services.AddFeatureProvider(Configuration);
+
+            //
+            services.AddOptions();
+            services.Configure<ServicesSettings>(options => Configuration.GetSection("ServicesSettings").Bind(options));
+            // var servicesSettings = Configuration.GetSection("Services").Get<Service[]>();
+            // services.AddSingleton<ServicesSettings>(servicesSettings);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +73,7 @@ namespace bitsmonkey.api
                 app.UseHsts();
                 app.UseHttpsRedirection();
             }
-            
+
             app.UseCors("CorsPolicy");
             app.UseMvc();
         }
