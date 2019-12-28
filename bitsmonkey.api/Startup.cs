@@ -54,9 +54,11 @@ namespace bitsmonkey.api
             services.AddFeatureProvider(Configuration);
 
             //
-            services.AddOptions();
-            services.Configure<ServicesSettings>(options => Configuration.GetSection("ServicesSettings").Bind(options));
-            // var servicesSettings = Configuration.GetSection("Services").Get<Service[]>();
+            // services.AddOptions();
+            // services.Configure<ServicesSettings>(options => Configuration.GetSection("ServicesSettings").Bind(options));
+
+            var servicesSettings = Configuration.GetSection("ServicesSettings").Get<ServicesSettings>();//Configuration.GetSection("Services").Get<Service[]>();
+            ServiceMapper.Initialize(servicesSettings);
             // services.AddSingleton<ServicesSettings>(servicesSettings);
         }
 
