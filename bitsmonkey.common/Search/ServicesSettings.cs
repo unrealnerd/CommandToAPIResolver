@@ -11,7 +11,7 @@ namespace bitsmonkey.common.Search
 
         public string Url { get; set; }
 
-        public Method[] Methods { get; set; }
+        public Service[] Services { get; set; }
         public string[] Tags { get; set; }
     }
 
