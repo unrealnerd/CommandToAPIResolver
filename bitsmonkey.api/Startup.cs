@@ -34,7 +34,7 @@ namespace bitsmonkey.api
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddScoped<ICustomService, BuzzWordGenerator>();
             services.AddScoped<ICustomService, RandomDogGenerator>();
             services.AddScoped<ICustomService, CopyCatRepeater>();
