@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using bitsmonkey.common.Search;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace bitsmonkey.common.Services
 {
@@ -19,7 +19,7 @@ namespace bitsmonkey.common.Services
 
             return new
             {
-                Message = JsonConvert.DeserializeObject<dynamic>(response),
+                Message = JsonSerializer.Deserialize<dynamic>(response),
                 Template = service.ResponseTemplate
             };
 

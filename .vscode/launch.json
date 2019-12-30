@@ -7,7 +7,7 @@
             "request": "launch",
             "preLaunchTask": "buildapi",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bitsmonkey.api/bin/Debug/netcoreapp2.2/bitsmonkey.api.dll",
+            "program": "${workspaceFolder}/bitsmonkey.api/bin/Debug/netcoreapp3.0/bitsmonkey.api.dll",
             "args": [],
             "cwd": "${workspaceFolder}/bitsmonkey.api",
             "stopAtEntry": false,

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using bitsmonkey.common.Services;
@@ -12,6 +11,7 @@ using bitsmonkey.whatsapp;
 using bitsmonkey.slack;
 using featureprovider.core.Registry;
 using bitsmonkey.common.Search;
+using Microsoft.Extensions.Hosting;
 
 namespace bitsmonkey.api
 {
@@ -32,15 +32,9 @@ namespace bitsmonkey.api
                 options.AddPolicy("CorsPolicy",
                     builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                    .AllowAnyHeader());
             });
-            services.AddMvc(options =>
-            {
-                options.RespectBrowserAcceptHeader = true;
-            })
-            .AddXmlDataContractSerializerFormatters()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllers();
             services.AddScoped<ICustomService, BuzzWordGenerator>();
             services.AddScoped<ICustomService, RandomDogGenerator>();
             services.AddScoped<ICustomService, CopyCatRepeater>();
@@ -64,7 +58,7 @@ namespace bitsmonkey.api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -78,7 +72,8 @@ namespace bitsmonkey.api
             }
 
             app.UseCors("CorsPolicy");
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

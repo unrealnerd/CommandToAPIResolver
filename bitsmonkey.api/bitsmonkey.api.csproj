@@ -1,15 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TargetFramework>netcoreapp3.0</TargetFramework>    
     <UserSecretsId>LocalKeyVault</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FeatureProvider" Version="1.0.1-alpha" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="FeatureProvider" Version="1.0.1-alpha" />    
     <PackageReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />    
   </ItemGroup>
