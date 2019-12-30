@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using bitsmonkey.common.Services;
 
 namespace bitsmonkey.common.Search
 {
+    //TODO: make this as a singleton class and on constructor trigger init
     public static class ServiceMapper
     {
         public static Dictionary<int, Service> ServiceMap { get; set; }
@@ -20,11 +22,8 @@ namespace bitsmonkey.common.Search
             for (int i = 0; i < servicesSettings.Services.Length; i++)
             {
                 var service = servicesSettings.Services[i];
-                ServiceMap.Add(i + 1, new Service
-                {
-                    Url = service.Url,
-                    Tags = service.Tags
-                });
+                service.Id = i + 1;
+                ServiceMap.Add(service.Id, service);
 
                 int y = 10;
 
@@ -34,8 +33,16 @@ namespace bitsmonkey.common.Search
                     {
                         y *= 10;
                     }
+
                     int id = ((i + 1) * y) + j;
-                    ServiceMap.Add(id, servicesSettings.Services[i].Services[j - 1]);
+
+                    var childService = servicesSettings.Services[i].Services[j - 1];
+
+                    childService.Id = id;
+                    childService.Url = service.Url + childService.Url;
+                    childService.ResponseTemplate = childService.ResponseTemplate ?? service.ResponseTemplate ?? Constant.Template.QUOTE;
+
+                    ServiceMap.Add(id, childService);
                 }
             }
         }
