@@ -36,7 +36,7 @@ namespace bitsmonkey.common
                     ServiceMapper.ServiceMap[serviceIds[0]]?.Services.Length == 1)
                     )
                 {
-                    if (ServiceMapper.ServiceMap[serviceIds[0]].Services.Length == 1)
+                    if (ServiceMapper.ServiceMap[serviceIds[0]]?.Services?.Length == 1)
                         return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]].Services[0]);
                     else
                         return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]]);
