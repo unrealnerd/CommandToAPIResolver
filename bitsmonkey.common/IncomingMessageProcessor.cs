@@ -30,10 +30,16 @@ namespace bitsmonkey.common
 
             if (ServiceMapper.TaggedServiceMap.TryGetValue(message, out List<int> serviceIds))
             {
+                // if its only one service is returned for the tag then execute otherwise list the list the services that falls under that tag
                 if (serviceIds.Count == 1 &&
-                    (ServiceMapper.ServiceMap[serviceIds[0]]?.Services == null || ServiceMapper.ServiceMap[serviceIds[0]]?.Services.Length == 0))
+                    (ServiceMapper.ServiceMap[serviceIds[0]]?.Services == null ||
+                    ServiceMapper.ServiceMap[serviceIds[0]]?.Services.Length == 1)
+                    )
                 {
-                    return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]]);
+                    if (ServiceMapper.ServiceMap[serviceIds[0]].Services.Length == 1)
+                        return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]].Services[0]);
+                    else
+                        return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]]);
                 }
                 else
                 {
