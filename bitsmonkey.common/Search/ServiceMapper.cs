@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using bitsmonkey.common.Services;
@@ -40,7 +42,9 @@ namespace bitsmonkey.common.Search
 
                     childService.Id = id;
                     childService.Url = service.Url + childService.Url;
-                    childService.ResponseTemplate = childService.ResponseTemplate ?? service.ResponseTemplate ?? Constant.Template.QUOTE;
+                    childService.Tags ??= new string[0];
+                    childService.Tags = childService.Tags.Concat(service.Tags ??= new string[] { }).ToArray();
+                    childService.ResponseTemplate ??= service.ResponseTemplate ?? Constant.Template.QUOTE;
 
                     ServiceMap.Add(id, childService);
                 }
@@ -49,7 +53,7 @@ namespace bitsmonkey.common.Search
 
         private static void InitTaggedServiceMap()
         {
-            TaggedServiceMap = new Dictionary<string, List<int>>();
+            TaggedServiceMap = new Dictionary<string, List<int>>(StringComparer.InvariantCultureIgnoreCase);
 
             foreach (var service in ServiceMap)
             {
@@ -65,6 +69,11 @@ namespace bitsmonkey.common.Search
                     }
                 }
             }
+        }
+
+        public static bool IsParentService(this Service s)
+        {
+            return s.Services?.Length > 0;
         }
     }
 }

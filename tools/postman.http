@@ -10,7 +10,22 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
+    "message": "corporate"
+}
+### WEB CONTROLLER FOR COMMANDS
+POST {{apiendpoint}}/api/web/incoming HTTP/1.1
+Content-Type: application/json
+
+{
     "message": "dota"
+}
+
+### WEB CONTROLLER FOR COMMANDS
+POST {{apiendpoint}}/api/web/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "message": "promatches"
 }
 
 ### WEB CONTROLLER FOR COMMANDS
@@ -26,7 +41,7 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "message": "dog"
+    "message": "DOG"
 }
 
 ### WEB CONTROLLER FOR COMMANDS

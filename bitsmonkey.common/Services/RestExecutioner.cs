@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using bitsmonkey.common.Search;
 using System.Text.Json;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System;
+using System.Dynamic;
 
 namespace bitsmonkey.common.Services
 {
@@ -18,9 +21,11 @@ namespace bitsmonkey.common.Services
                 response = await ExecuteGetMethod(service);
             }
 
+            var result = (service.Response != null && service.Response.IsArray) ? JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(response).ToMappings(service.Response.Mappings) : JsonConvert.DeserializeObject<Dictionary<string, object>>(response).ToMappings(service.Response?.Mappings);
+
             return new
             {
-                Message = JsonConvert.DeserializeObject<dynamic>(response),
+                Message = result,
                 Template = service.ResponseTemplate
             };
 

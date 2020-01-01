@@ -30,39 +30,42 @@ namespace bitsmonkey.common
 
             if (ServiceMapper.TaggedServiceMap.TryGetValue(message, out List<int> serviceIds))
             {
-                // if its only one service is returned for the tag then execute otherwise list the list the services that falls under that tag
+                var firstService = ServiceMapper.ServiceMap[serviceIds[0]];
+
+                // if not a parent service
                 if (serviceIds.Count == 1 &&
-                    (ServiceMapper.ServiceMap[serviceIds[0]]?.Services == null ||
-                    ServiceMapper.ServiceMap[serviceIds[0]]?.Services.Length == 1)
-                    )
+                    !firstService.IsParentService())
                 {
-                    if (ServiceMapper.ServiceMap[serviceIds[0]]?.Services?.Length == 1)
-                        return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]].Services[0]);
-                    else
-                        return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]]);
+                    return await RestExecutioner.Execute(ServiceMapper.ServiceMap[serviceIds[0]]);
+                }
+                //one is parent another is child service
+                else if (serviceIds.Count == 2 &&
+                    (firstService.IsParentService() ^
+                    ServiceMapper.ServiceMap[serviceIds[1]].IsParentService()))
+                {
+                    return await RestExecutioner.Execute(firstService.IsParentService() ? ServiceMapper.ServiceMap[serviceIds[1]] : firstService);
                 }
                 else
                 {
-                    return await Task.Run<dynamic>(() => new
-                    {
-                        message = serviceIds.Select(sid => new
-                        {
-                            id = sid,
-                            service = ServiceMapper.ServiceMap[sid]
-                        }),
-                        template = Constant.Template.SERVICEMAP
-                    });
+                    return await ReturnServiceMapResponse(serviceIds.Select(sid =>
+                            ServiceMapper.ServiceMap[sid]));
                 }
 
             }
             else
             {
-                return await Task.Run<dynamic>(() => new
-                {
-                    message = ServiceMapper.ServiceMap,
-                    template = Constant.Template.SERVICEMAP
-                });
+                return await ReturnServiceMapResponse(ServiceMapper.ServiceMap.Values.ToArray());
             }
+        }
+
+        private async Task<dynamic> ReturnServiceMapResponse(IEnumerable<Service> services)
+        {
+            services.ToList().ForEach(s => s.Services = null);
+            return await Task.Run<dynamic>(() => new
+            {
+                message = services,
+                template = Constant.Template.SERVICEMAP
+            });
         }
     }
 }
