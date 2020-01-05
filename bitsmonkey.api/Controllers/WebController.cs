@@ -5,6 +5,7 @@ using bitsmonkey.common.Services;
 using Models;
 using Microsoft.Extensions.Options;
 using bitsmonkey.common.Search;
+using bitsmonkey.common.Models;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -25,7 +26,7 @@ public class WebController : Controller
     [HttpPost("incoming")]
     public async Task<IActionResult> Incoming(IncomingMessage incomingMessage)
     {
-        var response = await _messageProcessor.Process(incomingMessage.Message);
+        var response = await _messageProcessor.Process(incomingMessage);
 
         return Ok(response);
     }

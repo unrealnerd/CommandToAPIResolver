@@ -25,6 +25,7 @@ namespace bitsmonkey.common.Search
             {
                 var service = servicesSettings.Services[i];
                 service.Id = i + 1;
+                service.IsParent = true;
                 ServiceMap.Add(service.Id, service);
 
                 int y = 10;
@@ -69,11 +70,6 @@ namespace bitsmonkey.common.Search
                     }
                 }
             }
-        }
-
-        public static bool IsParentService(this Service s)
-        {
-            return s.Services?.Length > 0;
         }
     }
 }

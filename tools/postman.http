@@ -10,22 +10,14 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "message": "corporate"
+    "command": "corporate"
 }
 ### WEB CONTROLLER FOR COMMANDS
 POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "message": "dota"
-}
-
-### WEB CONTROLLER FOR COMMANDS
-POST {{apiendpoint}}/api/web/incoming HTTP/1.1
-Content-Type: application/json
-
-{
-    "message": "promatches"
+    "command": "dota"
 }
 
 ### WEB CONTROLLER FOR COMMANDS
@@ -33,7 +25,7 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "message": "api"
+    "command": "promatches"
 }
 
 ### WEB CONTROLLER FOR COMMANDS
@@ -41,7 +33,7 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "message": "DOG"
+    "command": "api"
 }
 
 ### WEB CONTROLLER FOR COMMANDS
@@ -49,7 +41,39 @@ POST {{apiendpoint}}/api/web/incoming HTTP/1.1
 Content-Type: application/json
 
 {
-    "message": "nonexisting"
+    "command": "DOG"
+}
+
+### WEB CONTROLLER FOR COMMANDS
+POST {{apiendpoint}}/api/web/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "command": "nonexisting"
+}
+
+### WEB CONTROLLER FOR COMMANDS
+POST {{apiendpoint}}/api/web/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "command": "11"
+}
+
+### WEB CONTROLLER FOR COMMANDS
+POST {{apiendpoint}}/api/web/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "command": "db",
+    "request": {
+        "body": {
+            "key": "36",
+            "value": {
+                "a": "123",
+            }
+        }
+    }
 }
 
 ### CORPORATE BULL SHIT

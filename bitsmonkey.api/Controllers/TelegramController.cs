@@ -26,7 +26,7 @@ public class TelegramController : Controller
     [HttpPost("incoming")]
     public async Task<bool> IncomingMessage(Update incomingMessage)
     {
-        var response = await _messageProcessor.Process(incomingMessage.Message.Text);
+        var response = await _messageProcessor.Process(new bitsmonkey.common.Models.IncomingMessage { Command = incomingMessage.Message.Text });
         await _telegramService.SendMessage(response, incomingMessage.Message.Chat.Id);
         return true;
     }
