@@ -14,10 +14,13 @@ namespace bitsmonkey.common.Search
         public string Url { get; set; }
         public Service[] Services { get; set; }
         public string Method { get; set; }
+        public string MediaType { get; set; } = "application/json";
         public string[] Tags { get; set; }
         public string ResponseTemplate { get; set; }
         public Response Response { get; set; }
         public string Description { get; set; }
+        public bool IsParent { get; set; } = false;
+        public bool Hide { get; set; } = false;
     }
 
     public class Response
