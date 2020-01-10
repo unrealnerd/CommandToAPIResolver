@@ -43,6 +43,7 @@ namespace bitsmonkey.common.Search
 
                     childService.Id = id;
                     childService.Url = service.Url + childService.Url;
+                    childService.Hide = service.Hide;
                     childService.Tags ??= new string[0];
                     childService.Tags = childService.Tags.Concat(service.Tags ??= new string[] { }).ToArray();
                     childService.ResponseTemplate ??= service.ResponseTemplate ?? Constant.Template.QUOTE;

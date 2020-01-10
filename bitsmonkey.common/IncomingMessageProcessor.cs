@@ -29,13 +29,13 @@ namespace bitsmonkey.common
                 //TODO: Talk to NLU Service to extract Intent & Entity
             }
 
-            if (int.TryParse(incomingMessage.Command, out int serviceId) &&
+            if (int.TryParse(incomingMessage.Query, out int serviceId) &&
                 ServiceMapper.ServiceMap.TryGetValue(serviceId, out Service service))
             {
                 return await RestExecutioner.Execute(service, incomingMessage);
             }
 
-            if (ServiceMapper.TaggedServiceMap.TryGetValue(incomingMessage.Command, out List<int> serviceIds))
+            if (ServiceMapper.TaggedServiceMap.TryGetValue(incomingMessage.Query, out List<int> serviceIds))
             {
                 var firstService = ServiceMapper.ServiceMap[serviceIds[0]];
 

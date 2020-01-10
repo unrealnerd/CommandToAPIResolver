@@ -31,7 +31,7 @@ public class SlackController : Controller
         }
         else if (incomingMessage.@Event.Type == "message" && !string.IsNullOrEmpty(incomingMessage.@Event.User))
         {
-            var response = await _messageProcessor.Process(new bitsmonkey.common.Models.IncomingMessage { Command = incomingMessage.@Event.Text });
+            var response = await _messageProcessor.Process(new bitsmonkey.common.Models.IncomingMessage { Query = incomingMessage.@Event.Text });
             await SlackService.SendMessage(response, incomingMessage.@Event.Channel);
             return Ok();
         }
