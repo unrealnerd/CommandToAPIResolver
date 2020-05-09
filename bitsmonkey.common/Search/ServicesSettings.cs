@@ -16,11 +16,17 @@ namespace bitsmonkey.common.Search
         public string Method { get; set; }
         public string MediaType { get; set; } = "application/json";
         public string[] Tags { get; set; }
+        public Request Request { get; set; }
         public string ResponseTemplate { get; set; }
         public Response Response { get; set; }
         public string Description { get; set; }
         public bool IsParent { get; set; } = false;
         public bool Hide { get; set; } = false;
+    }
+
+    public class Request
+    {
+        public IDictionary<string, string> Template { get; set; }
     }
 
     public class Response

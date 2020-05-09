@@ -1,5 +1,5 @@
 @apiendpoint = http://localhost:5001
-
+# @apiendpoint = https://bitsmonkeybotconductor.azurewebsites.net
 ### CHECK METHODS ALLOWED
 OPTIONS {{apiendpoint}}/api/web/incoming HTTP/1.1
 Access-Control-Request-Method: POST
@@ -67,12 +67,7 @@ Content-Type: application/json
 {
     "query": "db",
     "request": {
-        "body": {
-            "key": "36",
-            "value": {
-                "a": "123",
-            }
-        }
+        "body": "{\"key\":\"36\",\"value\":{\"a\":\"123\"}}"
     }
 }
 

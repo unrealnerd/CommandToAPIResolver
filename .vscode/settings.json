@@ -1,0 +1,4 @@
+{
+    "appService.deploySubpath": "bitsmonkey.api",
+    "appService.defaultWebAppToDeploy": "/subscriptions/a5c0594c-fd7b-4b64-9b9f-421e00051376/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/bitsmonkeybotconductor"
+}
