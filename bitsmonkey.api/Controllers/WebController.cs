@@ -14,12 +14,9 @@ public class WebController : Controller
     private readonly IMessageProcessor _messageProcessor;
     // private readonly IOptions<ServicesSettings> servicesSettings;
 
-    public WebController(IMessageProcessor messageProcessor 
-    // IOptions<ServicesSettings> servicesSettings
-    )
+    public WebController(IMessageProcessor messageProcessor)
     {
         _messageProcessor = messageProcessor;
-        // this.servicesSettings = servicesSettings;
     }
 
 

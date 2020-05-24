@@ -12,6 +12,8 @@ using bitsmonkey.slack;
 using featureprovider.core.Registry;
 using bitsmonkey.common.Search;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace bitsmonkey.api
 {
@@ -70,6 +72,13 @@ namespace bitsmonkey.api
                 app.UseHsts();
                 app.UseHttpsRedirection();
             }
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Resources")),
+                    RequestPath = "/Resources"
+            });
 
             app.UseCors("CorsPolicy");
             app.UseRouting();

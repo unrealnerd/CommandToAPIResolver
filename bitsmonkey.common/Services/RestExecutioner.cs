@@ -57,7 +57,7 @@ namespace bitsmonkey.common.Services
             var response = string.Empty;
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, service.Url)
             {
-                Content = new StringContent(incomingMessage.Request["body"].ToString(), Encoding.UTF8, service.MediaType)
+                Content = new StringContent(JsonConvert.SerializeObject(incomingMessage.Request["body"]), Encoding.UTF8, service.MediaType)
             };
 
             using (HttpClient _client = new HttpClient())

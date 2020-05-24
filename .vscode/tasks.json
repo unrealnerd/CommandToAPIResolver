@@ -20,7 +20,7 @@
                 "${workspaceFolder}/bitsmonkey.api/bitsmonkey.api.csproj"
             ],
             "problemMatcher": "$msCompile",
-            "dependsOn":["cleanapi"]
+            // "dependsOn":["cleanapi"]
         }
     ]
 }

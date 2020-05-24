@@ -71,6 +71,23 @@ Content-Type: application/json
     }
 }
 
+### WEB CONTROLLER FOR COMMANDS
+POST {{apiendpoint}}/api/web/incoming HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": "repo",
+    "request": {
+        "body": {
+            "name": "Pen",
+            "description": "parker pen",
+            "unitPrice": 450.00,
+            "images": ["pen1.jpg"],
+            "tags": ["pen"]
+        }
+    }
+}
+
 ### CORPORATE BULL SHIT
 GET https://corporatebs-generator.sameerkumar.website/ HTTP/1.1
 
