@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using featureprovider.core.Models;
+// using featureprovider.core.Models;
 using bitsmonkey.common.Services;
 using bitsmonkey.common.Search;
 using bitsmonkey.common.Models;
@@ -11,23 +11,23 @@ namespace bitsmonkey.common
 {
     public class IncomingMessageProcessor : IMessageProcessor
     {
-        private readonly IFeatureProvider _featureProvider;
+        // private readonly IFeatureProvider _featureProvider;
         private readonly RestExecutioner RestExecutioner;
         public IncomingMessageProcessor(
-            IFeatureProvider featureprovider,
+            // IFeatureProvider featureprovider,
             RestExecutioner restExecutioner
         )
         {
-            _featureProvider = featureprovider;
+            // _featureProvider = featureprovider;
             RestExecutioner = restExecutioner;
         }
 
         public async Task<dynamic> Process(IncomingMessage incomingMessage)
         {
-            if (_featureProvider.Evaluate("NLUEnabled") == "true")
-            {
-                //TODO: Talk to NLU Service to extract Intent & Entity
-            }
+            // if (_featureProvider.Evaluate("NLUEnabled") == "true")
+            // {
+            //     //TODO: Talk to NLU Service to extract Intent & Entity
+            // }
 
             if (int.TryParse(incomingMessage.Query, out int serviceId) &&
                 ServiceMapper.ServiceMap.TryGetValue(serviceId, out Service service))

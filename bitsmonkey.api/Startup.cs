@@ -9,7 +9,7 @@ using bitsmonkey.common.Services.CopyCat;
 using bitsmonkey.telegram;
 using bitsmonkey.whatsapp;
 using bitsmonkey.slack;
-using featureprovider.core.Registry;
+// using featureprovider.core.Registry;
 using bitsmonkey.common.Search;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.FileProviders;
@@ -48,7 +48,7 @@ namespace bitsmonkey.api
             services.AddScoped<WhatsAppService>();
 
             // Feature Provider Library initial setup            
-            services.AddFeatureProvider(Configuration);
+            // services.AddFeatureProvider(Configuration);
 
             //
             // services.AddOptions();
