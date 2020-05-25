@@ -25,9 +25,24 @@ namespace bitsmonkey.common.Services
             else if (string.IsNullOrEmpty(service.Method) ||
                 service.Method.Equals("POST", System.StringComparison.InvariantCultureIgnoreCase))
             {
-                response = await ExecutePostMethod(service, incomingMessage);
+                // incase an api os called without the input to it return back specifying the template to fill
+                if (incomingMessage.Request == null)
+                {
+                    return new
+                    {
+                        Message = "Requires message body to post",
+                        RequestTemplate = service.Request.Template,// template used to create the request for the API
+                        Template = service.ResponseTemplate// the template to be used select the dynamic component type
+                    };
+                }
+                else
+                {
+                    response = await ExecutePostMethod(service, incomingMessage);
+                }
+
             }
 
+            //response can be an array of json objects or a single one
             object result = service.Response != null && service.Response.IsArray ?
                 JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(response).ToMappings(service.Response.Mappings) :
                 JsonConvert.DeserializeObject<Dictionary<string, object>>(response).ToMappings(service.Response?.Mappings);
