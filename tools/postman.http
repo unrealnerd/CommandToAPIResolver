@@ -1,4 +1,4 @@
-@apiendpoint = http://localhost:5001
+@apiendpoint = https://localhost:5001
 # @apiendpoint = https://bitsmonkeybotconductor.azurewebsites.net
 ### CHECK METHODS ALLOWED
 OPTIONS {{apiendpoint}}/api/web/incoming HTTP/1.1

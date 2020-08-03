@@ -1,4 +1,15 @@
 {
     "appService.deploySubpath": "bitsmonkey.api",
-    "appService.defaultWebAppToDeploy": "/subscriptions/a5c0594c-fd7b-4b64-9b9f-421e00051376/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/bitsmonkeybotconductor"
+    "appService.defaultWebAppToDeploy": "/subscriptions/a5c0594c-fd7b-4b64-9b9f-421e00051376/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/bitsmonkeybotconductor",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#0b3b16",
+        "activityBar.activeBorder": "#6643dc",
+        "activityBar.background": "#0b3b16",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#6643dc",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "tab.activeBorder": "#0b3b16"
+    },
+    "peacock.color": "#031006"
 }
