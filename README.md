@@ -1,4 +1,4 @@
-# Bot Conductor
+# Command to Api Resolver
 
 ![Twilio Whatsapp BotConductor](images/botconductor.jpg)
 
@@ -27,13 +27,52 @@ and Slack as well
 
 ![Slack BotConductor](images/botconductorslack.gif)
 
-### TODO
+and web application [omni portal](https://github.com/unrealnerd/OmniPortal)
 
-- [x] Integrate Telegram medium
-- [ ] Containerize the application
-- [ ] Integrate a web controller which will reply with value for the api invoked
-- [ ] Integrate Dota Open API
-- [ ] Integrate Alexa Medium
-- [ ] Integrate Google Assistant Medium
-- [ ] Use JWT and secure it like [this](https://dev.to/bitsmonkey/jwt-in-dotnet-core-9bg)
-- [ ] Implement a way to call external message processing api's as a background service
+### Notes
+
+To on board a new service add the service details in appsettings.json file.
+
+Here is how the schema looks like. Should be developing a admin screen to manipulate this Json.
+
+```jsonc
+//list all the services
+{
+    "services":[
+    //name of the service.
+    "name":"",
+    //base address of an API
+    "isParent": true,
+    //specifies the HTTP method for the endpoint of source API
+    "method": "POST",
+    //endpoint address of the API
+    "url":"",
+    //array of string value which will be used to search for api endpoints.
+    "tags":[],
+    //All the surce API request related is grouped here
+    "request": {
+        //template in which the source api requires the request.Include api request headers and body. value type is menioted within {{type}}
+        "template": "{\"header\":\"{{jsonobject}}\",\"body\":{\"key\":\"{{string}}\",\"value\":\"{{jsonobject}}\"}}"
+    }
+    //All the source API response related stuffs are grouped here
+    "response": {
+        //specifies if source api response is an json array a json object
+        "isArray": false
+        //template that maps to a card in omniprotal UI. support template mentioned in [omni portal](https://github.com/unrealnerd/OmniPortal)
+        "responseTemplate": "IMAGE",
+        //mappings will help transform the source api reponse to the format that makes sense to omniportal application so that component can fetch the required field. eg: api responds image url in "message" field and the omniportal component uses "ImageUrl" as the field.
+        "mappings": {
+            //left is the source api response and right is the field that is understood by omniportal
+            "quote": "phrase"
+        }
+    }
+    // defines another set endpoints for the same parent api. eg:"/product","/categories" 
+    "services":[
+        // will have the same schema as an service
+
+        ]
+    ]
+}
+```
+
+
