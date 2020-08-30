@@ -16,4 +16,5 @@ volumes:
   mongodata:
 networks: 
   inventory:
+    name: inventory
     driver: bridge
