@@ -73,11 +73,12 @@ namespace bitsmonkey.api
                 app.UseHttpsRedirection();
             }
 
+            var resourceFolderPath = Path.Combine(env.ContentRootPath, "Resources");
+            Directory.CreateDirectory(resourceFolderPath);
+
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), "Resources")),
-                    RequestPath = "/Resources"
+                FileProvider = new PhysicalFileProvider(resourceFolderPath)
             });
 
             app.UseCors("CorsPolicy");

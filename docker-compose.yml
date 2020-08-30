@@ -1,0 +1,19 @@
+version: '3.7'
+services:  
+  bitsmonkey-api:
+    container_name: bitsmonkey-api
+    image: bitsmonkey.api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9100:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Container
+    networks: 
+        - inventory
+volumes:
+  mongodata:
+networks: 
+  inventory:
+    driver: bridge
