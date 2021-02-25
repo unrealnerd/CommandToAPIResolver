@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace bitsmonkey.common.Helpers
 {
@@ -7,7 +7,7 @@ namespace bitsmonkey.common.Helpers
     {
         public static object ToJson<T>(this string obj) 
         {
-            return JsonConvert.DeserializeObject<T>(obj);
+            return JsonSerializer.Deserialize<T>(obj);
         }
     }
 }

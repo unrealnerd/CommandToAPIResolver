@@ -2,7 +2,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using bitsmonkey.common.Search;
 using System.Text.Json;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System;
 using System.Dynamic;
@@ -44,8 +43,8 @@ namespace bitsmonkey.common.Services
 
             //response can be an array of json objects or a single one
             object result = service.Response != null && service.Response.IsArray ?
-                JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(response).ToMappings(service.Response.Mappings) :
-                JsonConvert.DeserializeObject<Dictionary<string, object>>(response).ToMappings(service.Response?.Mappings);
+                JsonSerializer.Deserialize<List<Dictionary<string, object>>>(response).ToMappings(service.Response.Mappings) :
+                JsonSerializer.Deserialize<Dictionary<string, object>>(response).ToMappings(service.Response?.Mappings);
 
             return new
             {
@@ -72,7 +71,7 @@ namespace bitsmonkey.common.Services
             var response = string.Empty;
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, service.Url)
             {
-                Content = new StringContent(JsonConvert.SerializeObject(incomingMessage.Request["body"]), Encoding.UTF8, service.MediaType)
+                Content = new StringContent(JsonSerializer.Serialize(incomingMessage.Request["body"]), Encoding.UTF8, service.MediaType)
             };
 
             using (HttpClient _client = new HttpClient())
